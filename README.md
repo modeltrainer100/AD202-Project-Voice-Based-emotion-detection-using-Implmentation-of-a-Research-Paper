@@ -377,7 +377,7 @@ Early Stopping: Patience 10 (if implemented)
 
 <div align="center">
 
-**Course:** AD210  
+**Course:** Python Programming for Artificial Intelligence and Data Science 
 **Supervisor:** Dr. Gyaneswar  
 **Institution:** IIIT Raichur
 
@@ -420,15 +420,6 @@ If you use this implementation in your research, please cite:
   institution={IIIT Raichur}
 }
 ```
-
----
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
@@ -440,19 +431,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 5. Open a Pull Request
 
 ---
-
-## 🐛 Issues
-
-Found a bug? Have a feature request? Please [open an issue](https://github.com/yourusername/speech-emotion-recognition/issues).
-
----
-
-## ⭐ Show Your Support
-
-If this project helped you in your research or learning, please consider giving it a ⭐!
-
----
-
 <div align="center">
 
 ### 📧 Contact
