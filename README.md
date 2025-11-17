@@ -319,8 +319,8 @@ The heatmap clearly shows the performance gradient, with **calm** (dark blue) pe
 
 <div align="center">
 
-![Model Accuracy](model_accuracy.png)
-![Model Loss](model_loss.png)
+![Model Accuracy](accuracy.png)
+![Model Loss](loss.png)
 
 </div>
 
