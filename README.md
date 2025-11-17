@@ -9,7 +9,7 @@
 <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Streamlit"/>
 
 *Implementation of "Improvement and Implementation of a Speech Emotion Recognition Model Based on Dual-Layer LSTM"*
-
+confusion_matrix.png
 [📄 Paper](#-research-paper) • [🚀 Features](#-features) • [📊 Dataset](#-dataset) • [⚙️ Installation](#️-installation) • [🎯 Results](#-results)
 
 ---
