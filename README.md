@@ -344,8 +344,4 @@ This project demonstrates how AI can understand human emotions from something as
 
 <div align="center">
 
-### Made with ❤️ by Team AD210
-
-*Turning voice into understanding, one emotion at a time.*
-
 </div>
