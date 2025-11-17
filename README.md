@@ -25,7 +25,9 @@ This project is a **complete from-scratch implementation** of the research paper
 > *Communication University of China | Hainan International College | Hefei University of Technology*
 
 <div align="center">
-<img src="./paper.png" alt="Research Paper" width="700"/>
+
+![Research Paper](paper.png)
+
 </div>
 
 ### 📚 Paper Overview
@@ -288,7 +290,9 @@ soundfile>=0.11.0
 ### Confusion Matrix Insights
 
 <div align="center">
-<img src="./confusion_matrix.png" alt="Confusion Matrix" width="650"/>
+
+![Confusion Matrix](confusion_matrix.png)
+
 </div>
 
 **Key Observations:**
@@ -300,7 +304,9 @@ soundfile>=0.11.0
 ### Classification Report Visualization
 
 <div align="center">
-<img src="./classification_report.png" alt="Classification Report Heatmap" width="700"/>
+
+![Classification Report](classification_report.png)
+
 </div>
 
 The heatmap clearly shows the performance gradient, with **calm** (dark blue) performing excellently and **neutral/sad** (light yellow) requiring additional training data or feature engineering.
@@ -312,16 +318,10 @@ The heatmap clearly shows the performance gradient, with **calm** (dark blue) pe
 ### Learning Curves
 
 <div align="center">
-<table>
-<tr>
-<td width="50%">
-<img src="./model_accuracy.png" alt="Model Accuracy" width="100%"/>
-</td>
-<td width="50%">
-<img src="./model_loss.png" alt="Model Loss" width="100%"/>
-</td>
-</tr>
-</table>
+
+![Model Accuracy](model_accuracy.png)
+![Model Loss](model_loss.png)
+
 </div>
 
 ### Training Analysis
