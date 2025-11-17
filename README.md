@@ -84,5 +84,3 @@ This makes RAVDESS a great benchmark dataset for emotion recognition projects.
 - **Streamlit**
 
 ---
-
-## 📁 Project Structure
