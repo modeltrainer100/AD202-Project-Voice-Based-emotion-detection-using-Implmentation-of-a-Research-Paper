@@ -26,7 +26,7 @@ This project is a **complete from-scratch implementation** of the research paper
 
 <div align="center">
 
-![Research Paper](paper.png)
+<img src="paper.png" alt="Research Paper" width="800"/>
 
 </div>
 
