@@ -1,4 +1,4 @@
-         # 🎤 Speech Emotion Recognition
+# 🎤 Speech Emotion Recognition using BI-LSTMs
 ## Understanding Emotions Through Audio Intelligence
 
 <div align="center">
