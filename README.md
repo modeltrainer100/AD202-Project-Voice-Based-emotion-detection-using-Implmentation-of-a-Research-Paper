@@ -305,7 +305,7 @@ soundfile>=0.11.0
 
 <div align="center">
 
-![Classification Report](classification_report.png)
+![Classification Report](classification_report_heatmap.png)
 
 </div>
 
