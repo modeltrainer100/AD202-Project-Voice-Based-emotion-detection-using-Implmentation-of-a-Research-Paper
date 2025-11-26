@@ -12,7 +12,7 @@
 This project implements the research paper **"Improvement and Implementation of a Speech Emotion Recognition Model Based on Dual-Layer LSTM"** by Xiaoran Yang, Shuhan Yu, and Wenxi Xu.
 
 <p align="center">
-  <img src="path/to/your/paper_screenshot.png" alt="Paper Header" width="700">
+  <img src="paper.png" alt="Paper Header" width="700">
 </p>
 
 ### 📚 Paper Overview
