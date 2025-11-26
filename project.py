@@ -111,8 +111,7 @@ def load_models():
     try:
         # Try loading the optimized model first
         model_paths = [
-            'best_emotion_model_randomsearch.h5',
-            'emotion_model.h5'
+            'emotion_lstm_model.h5'
         ]
         
         model = None
