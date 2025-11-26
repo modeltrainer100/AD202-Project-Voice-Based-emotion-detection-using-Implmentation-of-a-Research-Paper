@@ -538,7 +538,7 @@ def main():
     with col2:
         st.markdown("""
         **Under the Guidance of:**  
-        Dr. Gyanswar
+        Dr. Dubacharla Gyaneshwar
         
         **Institution:**  
         Indian Institute of Information Technology, Raichur 
