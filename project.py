@@ -111,7 +111,7 @@ def load_models():
     try:
         # Try loading the optimized model first
         model_paths = [
-            'emotion_lstm_model.h5'
+            'emotion_model.h5',
         ]
         
         model = None
@@ -202,7 +202,7 @@ def load_audio_file(audio_file, sr=SAMPLE_RATE, duration=DURATION):
 
 def extract_features(signal, sr=SAMPLE_RATE, n_mfcc=N_MFCC, 
                     n_fft=N_FFT, hop_length=HOP_LENGTH):
-    """Extract audio features"""
+    """Extract audio features - all features to match scaler training"""
     try:
         # MFCC and delta
         mfcc = librosa.feature.mfcc(y=signal, sr=sr, n_mfcc=n_mfcc, 
@@ -225,7 +225,7 @@ def extract_features(signal, sr=SAMPLE_RATE, n_mfcc=N_MFCC,
         # Tonnetz
         tonnetz = librosa.feature.tonnetz(y=signal, sr=sr).T
         
-        # Align features
+        # Align features to minimum timesteps
         min_t = min(mfcc.shape[0], delta_mfcc.shape[0], chroma.shape[0], 
                     mel_db.shape[0], contrast.shape[0], tonnetz.shape[0])
         
@@ -251,18 +251,27 @@ def predict_emotion(audio_signal, model, scaler, label_encoder):
         if features is None:
             return None, None
         
-        # Pad to model's expected timesteps
+        # Get model's expected shape
         model_timesteps = model.input_shape[1]
-        t = features.shape[0]
+        model_features = model.input_shape[2]
+        
+        # Scale features first (scaler expects 233 features per timestep)
+        features_scaled = scaler.transform(features)
+        
+        # Truncate to match model's expected features (233 → 40)
+        if features_scaled.shape[1] > model_features:
+            features_scaled = features_scaled[:, :model_features]
+        
+        # Pad to model's expected timesteps
+        t = features_scaled.shape[0]
         
         if t < model_timesteps:
             pad_len = model_timesteps - t
-            features = np.pad(features, ((0, pad_len), (0, 0)), mode='constant')
+            features_scaled = np.pad(features_scaled, ((0, pad_len), (0, 0)), mode='constant')
         else:
-            features = features[:model_timesteps, :]
+            features_scaled = features_scaled[:model_timesteps, :]
         
-        # Scale and reshape
-        features_scaled = scaler.transform(features)
+        # Reshape for model
         features_scaled = features_scaled.reshape(1, model_timesteps, -1)
         
         # Predict
