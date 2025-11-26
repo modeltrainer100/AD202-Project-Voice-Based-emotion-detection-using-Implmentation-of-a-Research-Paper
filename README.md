@@ -1,315 +1,291 @@
-# 🎭 Speech Emotion Recognition using Dual-Layer LSTM
+# 🎭 Speech Emotion Recognition Using Dual-Layer LSTM
 
-<div align="center">
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.8+-blue.svg" alt="Python">
+  <img src="https://img.shields.io/badge/TensorFlow-2.x-orange.svg" alt="TensorFlow">
+  <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
+  <img src="https://img.shields.io/badge/Status-In%20Progress-yellow.svg" alt="Status">
+</p>
 
-![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
-![TensorFlow](https://img.shields.io/badge/TensorFlow-2.0+-orange.svg)
-![License](https://img.shields.io/badge/License-MIT-green.svg)
-![Status](https://img.shields.io/badge/Status-In%20Development-yellow.svg)
+## 📄 About the Paper
 
-*An implementation of speech emotion recognition using dual-layer LSTM architecture*
+This project implements the research paper **"Improvement and Implementation of a Speech Emotion Recognition Model Based on Dual-Layer LSTM"** by Xiaoran Yang, Shuhan Yu, and Wenxi Xu.
 
-[Features](#features) • [About the Paper](#about-the-paper) • [Project Overview](#project-overview) • [Architecture](#architecture) • [Getting Started](#getting-started)
+<p align="center">
+  <img src="path/to/your/paper_screenshot.png" alt="Paper Header" width="700">
+</p>
 
-</div>
+### 📚 Paper Overview
 
----
+The paper presents an enhanced speech emotion recognition (SER) system that builds upon existing models by introducing an additional LSTM layer to improve accuracy and computational efficiency. 
 
-## 📖 About the Paper
+**Key Innovations:**
+- 🧠 **Dual-Layer LSTM Architecture**: Captures long-term dependencies in audio sequences
+- 📈 **2% Accuracy Improvement**: Outperforms single-layer LSTM models
+- ⚡ **Reduced Latency**: Enhanced real-time performance
+- 🎯 **Complex Pattern Recognition**: Better extraction of emotional features from noisy audio
 
-This project is an implementation of the research paper **"Improvement and Implementation of a Speech Emotion Recognition Model Based on Dual-Layer LSTM"**. 
-
-The paper proposes an advanced approach to detecting emotions from voice recordings using a sophisticated dual-layer Long Short-Term Memory (LSTM) neural network architecture. Traditional single-layer models often struggle to capture the complex temporal dependencies and nuanced acoustic features present in emotional speech. The dual-layer LSTM architecture addresses this limitation through several key innovations:
-
-### Why Dual-Layer LSTM?
-
-**Enhanced Feature Extraction**: The two-layer structure enables the model to capture both short-term and long-term temporal patterns in speech signals. The first layer focuses on immediate acoustic variations, while the second layer learns higher-level emotional representations.
-
-**Improved Context Understanding**: The hierarchical architecture allows the network to build abstract emotional features from raw audio characteristics, understanding not just what is being said, but how it's being expressed.
-
-**Better Generalization**: By learning multiple levels of representation, the model achieves better performance across different speakers, languages, and recording conditions while reducing overfitting.
-
-### Key Contributions from the Paper
-
-🎯 **Novel Architecture Design**: Introduces an optimized dual-layer LSTM structure specifically tuned for emotional feature learning from speech  
-
-🔊 **Pure Voice-Based Detection**: Focuses entirely on acoustic features without requiring text transcription or linguistic analysis  
-
-📊 **Multi-Emotion Classification**: Successfully distinguishes between multiple emotional states including anger, happiness, sadness, fear, disgust, surprise, and neutral  
-
-⚡ **Efficient Processing**: Balances model complexity with computational efficiency for practical deployment  
-
-🎓 **Robust Feature Engineering**: Proposes effective methods for extracting and preprocessing audio features that capture emotional content
+The dual-layer architecture addresses limitations of single-layer LSTM structures in extracting emotional features from audio data, especially when dealing with noisy or complex emotional shifts in speech.
 
 ---
 
-## 🎯 Project Overview
+## 🎯 Project Objective
 
-In this project, we are implementing the dual-layer LSTM architecture described in the research paper to create a robust voice-based emotion detection system. Our implementation focuses on faithful reproduction of the paper's methodology while exploring potential improvements and optimizations.
+We are implementing this paper **from scratch** as a comprehensive machine learning project. This is a complete ground-up implementation where we:
 
-### What We're Building
-
-This is a **voice-based emotion detection system** that analyzes acoustic features of speech to identify the emotional state of the speaker. Unlike text-based sentiment analysis, this system works purely with audio signals, making it valuable for scenarios where:
-
-- Verbal content is ambiguous but tone reveals emotion
-- Multiple languages are involved (emotion transcends language barriers)
-- Non-verbal emotional cues are more important than words
-- Real-time emotion monitoring is needed
-
-### Research Goals
-
-✨ **Faithful Implementation**: Reproduce the dual-layer LSTM architecture exactly as described in the paper to validate the original research findings
-
-🔧 **Performance Analysis**: Conduct comprehensive experiments to understand the model's strengths, limitations, and behavior across different datasets
-
-📈 **Improvement Exploration**: Investigate potential enhancements to the original architecture while maintaining its core principles
-
-🌐 **Generalization Testing**: Evaluate the model's performance across diverse datasets, speakers, and recording conditions
-
-🚀 **Practical Deployment**: Develop tools and interfaces that make the technology accessible for real-world applications
-
-### Real-World Applications
-
-This voice-based emotion recognition technology has significant potential across multiple domains:
-
-**Healthcare & Mental Health**
-- Monitoring emotional well-being in therapy sessions
-- Detecting signs of depression or anxiety from speech patterns
-- Supporting mental health chatbots and virtual assistants
-
-**Customer Service & Business**
-- Analyzing customer satisfaction from call center recordings
-- Real-time emotion detection for improved agent responses
-- Quality assurance and training evaluation
-
-**Human-Computer Interaction**
-- Emotionally-aware virtual assistants and AI companions
-- Adaptive learning systems that respond to student frustration or engagement
-- Enhanced accessibility tools for individuals with communication difficulties
-
-**Entertainment & Media**
-- Gaming experiences that adapt to player emotional state
-- Interactive storytelling with emotion-driven narratives
-- Content recommendation based on emotional responses
-
-**Security & Safety**
-- Detecting stress or distress in emergency calls
-- Driver emotion monitoring for safety systems
-- Support for conflict de-escalation in sensitive situations
+✅ Design and code the dual-layer LSTM architecture from scratch  
+✅ Implement custom feature extraction pipelines for audio data  
+✅ Train the model on emotion-labeled speech datasets  
+✅ Evaluate performance metrics against baseline models  
+✅ Reproduce and validate the research findings  
 
 ---
 
-## ✨ Features
+## 📊 Dataset: RAVDESS
 
-- 🎤 **Comprehensive Audio Processing**: Advanced preprocessing pipeline for extracting meaningful features from raw audio files
-- 🧠 **Dual-Layer LSTM Implementation**: Faithful reproduction of the paper's proposed neural network architecture
-- 📊 **Multi-Dataset Support**: Compatible with standard emotion recognition datasets (RAVDESS, TESS, SAVEE) and custom data
-- 📈 **Training Infrastructure**: Complete training pipeline with validation, checkpointing, and performance monitoring
-- 🎯 **Emotion Prediction**: Inference system for classifying emotions in new audio samples
-- 📉 **Performance Analytics**: Detailed evaluation metrics, confusion matrices, and visualization tools
-- 💾 **Model Management**: Tools for saving, loading, and versioning trained models
-- 🔬 **Experiment Tracking**: Logging and comparison of different model configurations
+We are using the **RAVDESS (Ryerson Audio-Visual Database of Emotional Speech and Song)** dataset, which was also validated in the original paper.
+
+### Dataset Characteristics
+
+| Feature | Description |
+|---------|-------------|
+| **Actors** | 24 professional actors (12 male, 12 female) |
+| **Emotions** | 7 categories: neutral, calm, happy, sad, angry, fearful, disgust, surprised |
+| **Modality** | Audio recordings of emotional speech |
+| **Quality** | Professionally recorded with controlled acoustic conditions |
+| **Balance** | Equal representation across emotions and genders |
+
+### Why RAVDESS?
+
+- ✨ Industry-standard benchmark for SER research
+- 🎯 Clean, labeled data ideal for supervised learning
+- 📊 Sufficient size for training deep learning models
+- 🔬 Enables direct comparison with paper's reported results
+
+**Dataset Link:** [RAVDESS on Kaggle](https://www.kaggle.com/uwrfkaggle/ravdess-emotional-speech-audio)
 
 ---
 
 ## 🏗️ Architecture
 
-The dual-layer LSTM architecture processes speech through the following pipeline:
-
+### Dual-Layer LSTM Model
 ```
-Audio Input (WAV/MP3)
-    ↓
-Feature Extraction
-├── MFCC (Mel-Frequency Cepstral Coefficients)
-├── Mel-Spectrogram
-├── Chroma Features
-└── Spectral Features
-    ↓
-Feature Normalization & Augmentation
-    ↓
-LSTM Layer 1 (128-256 units)
-├── Learns temporal patterns
-└── Captures immediate acoustic variations
-    ↓
-Dropout Layer (Regularization)
-    ↓
-LSTM Layer 2 (64-128 units)
-├── Learns abstract representations
-└── Builds emotional context
-    ↓
-Dense Layer(s)
-├── Feature mapping
-└── Non-linear transformations
-    ↓
-Softmax Output Layer
-└── Emotion probabilities (7 classes)
+Input (Audio Features)
+        ↓
+   LSTM Layer 1 (128 units)
+        ↓
+     Dropout (0.3)
+        ↓
+   LSTM Layer 2 (64 units)
+        ↓
+     Dropout (0.3)
+        ↓
+   Dense Layer (64 units, ReLU)
+        ↓
+   Output Layer (7 units, Softmax)
 ```
 
-### Architectural Highlights
+### Feature Extraction Pipeline
 
-**Layer 1 - Temporal Feature Learning**: The first LSTM layer processes the sequential audio features, capturing immediate temporal dependencies and acoustic variations that characterize emotional speech.
+- **MFCC** (Mel-Frequency Cepstral Coefficients)
+- **Chroma Features**
+- **Mel Spectrogram**
+- **Zero Crossing Rate**
+- **Spectral Centroid**
 
-**Layer 2 - Abstract Representation**: The second LSTM layer operates on the outputs of the first layer, learning higher-level emotional patterns and building context-aware representations.
+---
 
-**Regularization Strategy**: Dropout layers between LSTM layers prevent overfitting and improve model generalization across different speakers and datasets.
+## 🛠️ Technologies Used
 
-**Output Classification**: Dense layers with softmax activation produce probability distributions over emotion categories, enabling confident emotion prediction.
+- **Python 3.8+**
+- **TensorFlow / Keras** - Deep Learning Framework
+- **Librosa** - Audio Processing
+- **NumPy** - Numerical Computing
+- **Pandas** - Data Manipulation
+- **Matplotlib / Seaborn** - Visualization
+- **Scikit-learn** - ML Utilities
+
+---
+
+## 📁 Project Structure
+```
+speech-emotion-recognition/
+│
+├── data/
+│   ├── raw/                    # Raw RAVDESS dataset
+│   ├── processed/              # Preprocessed features
+│   └── README.md
+│
+├── notebooks/
+│   ├── 01_data_exploration.ipynb
+│   ├── 02_feature_extraction.ipynb
+│   ├── 03_model_training.ipynb
+│   └── 04_evaluation.ipynb
+│
+├── src/
+│   ├── __init__.py
+│   ├── data_preprocessing.py   # Audio preprocessing functions
+│   ├── feature_extraction.py   # Feature extraction utilities
+│   ├── model.py                # Dual-Layer LSTM model
+│   ├── train.py                # Training script
+│   └── evaluate.py             # Evaluation script
+│
+├── models/
+│   └── saved_models/           # Trained model checkpoints
+│
+├── results/
+│   ├── plots/                  # Visualization outputs
+│   └── metrics/                # Performance metrics
+│
+├── requirements.txt
+├── README.md
+└── LICENSE
+```
 
 ---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-
-- Python 3.8 or higher
-- TensorFlow 2.0+
-- CUDA-compatible GPU (recommended for training)
-- Audio processing libraries (librosa, soundfile)
+```bash
+Python 3.8 or higher
+pip or conda package manager
+```
 
 ### Installation
 
-Clone the repository and install the required dependencies to begin working with the project.
-
-### Dataset Preparation
-
-The model requires labeled audio datasets for training. We support standard emotion recognition datasets:
-
-**RAVDESS** (Ryerson Audio-Visual Database of Emotional Speech and Song)
-- 7,356 files from 24 actors
-- 7 emotion categories
-- High-quality studio recordings
-
-**TESS** (Toronto Emotional Speech Set)
-- 2,800 audio files
-- 2 female actors
-- 7 emotions across 200 target words
-
-**SAVEE** (Surrey Audio-Visual Expressed Emotion)
-- 480 British English utterances
-- 4 male actors
-- 7 emotion categories
-
-You can also prepare custom datasets following the standard format.
-
----
-
-## 📊 Model Performance
-
-The dual-layer LSTM architecture demonstrates strong performance in emotion classification tasks:
-
-- **Training Accuracy**: Typically reaches 85-95% on balanced datasets
-- **Validation Accuracy**: 75-85% depending on dataset complexity
-- **Inference Speed**: Real-time capable on modern hardware
-- **Generalization**: Shows good cross-dataset performance with appropriate preprocessing
-
-Performance varies based on:
-- Dataset quality and diversity
-- Audio preprocessing techniques
-- Hyperparameter tuning
-- Training duration and regularization
-
----
-
-## 🔬 Research & Experimentation
-
-This project serves as a foundation for emotion recognition research. Areas of active exploration include:
-
-### Current Research Directions
-
-**Hyperparameter Optimization**: Systematic exploration of layer sizes, learning rates, dropout values, and batch configurations to maximize performance.
-
-**Feature Engineering**: Investigating different audio feature combinations and extraction methods to capture emotional content more effectively.
-
-**Architecture Variations**: Testing modifications to the dual-layer design, including attention mechanisms, bidirectional LSTMs, and hybrid CNN-LSTM approaches.
-
-**Cross-Dataset Generalization**: Evaluating model performance when trained on one dataset and tested on another to assess real-world applicability.
-
-**Data Augmentation**: Developing techniques to artificially expand training data through audio transformations while preserving emotional content.
-
----
-
-## 📚 Documentation
-
-Comprehensive documentation covers:
-
-- **Model Architecture**: Detailed explanation of each component
-- **Data Preprocessing**: Audio feature extraction and normalization techniques
-- **Training Guide**: Step-by-step instructions for model training
-- **Evaluation Metrics**: Understanding accuracy, precision, recall, and F1-scores
-- **Deployment Guide**: Preparing models for production use
-
----
-
-## 🤝 Contributing
-
-We welcome contributions from the community! However, please note that we are not currently accepting pull requests as this is an ongoing research project. 
-
-If you're interested in this work:
-- ⭐ Star the repository to show support
-- 👀 Watch for updates on our progress
-- 💬 Open issues for bugs or questions
-- 📧 Contact us for collaboration opportunities
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 🙏 Acknowledgments
-
-- Original paper authors for the innovative dual-layer LSTM architecture
-- Contributors to open-source emotion recognition datasets (RAVDESS, TESS, SAVEE)
-- TensorFlow and Keras development teams
-- The broader speech emotion recognition research community
-
----
-
-## 📖 Citation
-
-If you use this implementation in your research, please cite the original paper:
-
+1. **Clone the repository**
+```bash
+git clone https://github.com/yourusername/speech-emotion-recognition.git
+cd speech-emotion-recognition
 ```
-"Improvement and Implementation of a Speech Emotion Recognition Model Based on Dual-Layer LSTM"
-[Add full citation details]
+
+2. **Create virtual environment**
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+3. **Install dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+4. **Download RAVDESS dataset**
+```bash
+# Download from Kaggle or official source
+# Place in data/raw/ directory
 ```
 
 ---
 
-## 📧 Contact
+## 💻 Usage
 
-For questions, collaboration inquiries, or feedback:
-- 📧 Email: [your-email@example.com]
-- 🐛 Issues: Use GitHub Issues for bug reports
-- 💭 Discussions: [Link to discussions if enabled]
+### 1. Preprocess Data
+```bash
+python src/data_preprocessing.py --data_path data/raw/ --output_path data/processed/
+```
+
+### 2. Extract Features
+```bash
+python src/feature_extraction.py --input_path data/processed/ --output_path data/features/
+```
+
+### 3. Train Model
+```bash
+python src/train.py --epochs 100 --batch_size 32 --learning_rate 0.001
+```
+
+### 4. Evaluate Model
+```bash
+python src/evaluate.py --model_path models/saved_models/best_model.h5
+```
+
+### 5. Run Inference
+```python
+from src.model import DualLayerLSTM
+from src.feature_extraction import extract_features
+
+# Load model
+model = DualLayerLSTM.load('models/saved_models/best_model.h5')
+
+# Predict emotion
+audio_file = 'path/to/audio.wav'
+features = extract_features(audio_file)
+emotion = model.predict(features)
+print(f"Predicted Emotion: {emotion}")
+```
+
+---
+
+## 📈 Results
+
+### Expected Performance (Based on Paper)
+
+| Metric | Single-Layer LSTM | Dual-Layer LSTM (Our Implementation) |
+|--------|------------------|--------------------------------------|
+| Accuracy | ~XX% | ~XX% (+2%) |
+| Precision | ~XX% | ~XX% |
+| Recall | ~XX% | ~XX% |
+| F1-Score | ~XX% | ~XX% |
+
+> **Note:** Results will be updated as we progress with the implementation.
 
 ---
 
 ## 🗺️ Roadmap
 
-### Current Phase: Implementation
-- [x] Paper analysis and architecture design
-- [x] Initial LSTM model implementation
-- [ ] Baseline performance evaluation
-- [ ] Feature extraction optimization
-
-### Future Plans
-- [ ] Multi-dataset training and evaluation
-- [ ] Real-time inference optimization
-- [ ] Web-based demo interface
-- [ ] Mobile deployment exploration
-- [ ] Extended documentation and tutorials
+- [x] Project setup and planning
+- [ ] Data collection and preprocessing
+- [ ] Feature extraction implementation
+- [ ] Dual-Layer LSTM model architecture
+- [ ] Model training and validation
+- [ ] Performance evaluation
+- [ ] Hyperparameter tuning
+- [ ] Real-time emotion recognition interface
+- [ ] Documentation and final report
 
 ---
 
-<div align="center">
+## 🤝 Contributing
 
-**🎭 Advancing Emotion AI Through Voice Analysis**
+We welcome contributions! Please feel free to submit a Pull Request.
 
-Made with ❤️ and 🎤 for emotion recognition research
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-⭐ Star this repo if you find it helpful!
+---
 
-</div>
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 👥 Team
+
+- **Your Name** - [GitHub](https://github.com/yourusername) | [LinkedIn](https://linkedin.com/in/yourprofile)
+- **Teammate 2** - [GitHub](https://github.com/teammate2)
+
+---
+
+## 🙏 Acknowledgments
+
+- Original Paper Authors: Xiaoran Yang, Shuhan Yu, and Wenxi Xu
+- RAVDESS Dataset Creators
+- Open-source community for tools and libraries
+
+---
+
+## 📧 Contact
+
+For questions or feedback, please reach out:
+- Email: your.email@example.com
+- Project Link: [https://github.com/yourusername/speech-emotion-recognition](https://github.com/yourusername/speech-emotion-recognition)
+
+---
+
+<p align="center">Made with ❤️ and 🎵</p>
