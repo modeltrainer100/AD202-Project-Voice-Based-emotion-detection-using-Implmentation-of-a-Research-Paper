@@ -532,7 +532,7 @@ def main():
         Dr. Gyanswar
         
         **Institution:**  
-        Indian Institute of Infomration Technology, Raichur 
+        Indian Institute of Information Technology, Raichur 
         """)
     
     st.markdown("---")
